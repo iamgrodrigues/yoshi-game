@@ -1,6 +1,7 @@
 const yoshi = document.querySelector('.yoshi');
 const background = document.querySelector('.background')
 let isJumping = false;
+let position = 0;
 
 function handleKeyup(event) {
   if (event.keyCode === 32) {
@@ -11,8 +12,7 @@ function handleKeyup(event) {
 }
 
 function jump() {
-  let position = 0;
-
+  
   isJumping = true;
 
   let upInterval = setInterval(() => {
@@ -45,12 +45,12 @@ function createBowser() {
   background.appendChild(bowser);
 
   let leftInteval = setInterval(() => {
-    bowserPosition -= 10;
-    bowser.style.left = bowserPosition + 'px';
-
     if (bowserPosition < -60) {
       clearInterval(leftInteval);
       background.removeChild(bowser);
+    } else if (bowserPosition > 0 && bowserPosition < 60 && position < 60) {
+      clearInterval(leftInteval);
+      document.body.innerHTML = '<h1 class="game-over">Game Over</h1>';
     } else {
       bowserPosition -= 10;
       bowser.style.left = bowserPosition + 'px';
