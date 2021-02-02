@@ -41,7 +41,7 @@ function createBowser() {
   let randomTime = Math.random() * 6000;
 
   bowser.classList.add('bowser');
-  bowser.style.left = 1000 + 'px';
+  bowser.style.left = bowserPosition + 'px';
   background.appendChild(bowser);
 
   let leftInteval = setInterval(() => {
