@@ -28,7 +28,7 @@
 
 @keyframes slideright {
   from {
-    background-position: 70000%;
+    background-position: -70000%;
   }
 
   to {
